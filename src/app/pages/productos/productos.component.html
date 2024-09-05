@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product Table</title>
+</head>
+<body>
+    <table id="productTable">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Nombre</th>
+                <th>Descripción</th>
+                <th>Categoría</th>
+                <th>Imagen</th>
+                <th>Precio</th>
+                <th>Acciones</th>
+            </tr>
+        </thead>
+        <tbody>
+          
+        </tbody>
+    </table>
+    <button onclick="addProduct()">Agregar Producto</button>
+
+    <script>
+        let products = [
+            { id: 1, nombre: "Mouse", descripcion: "Mouse", categoria: "Categoría A", imagen: "/api/placeholder/50/50", precio: 10.99 },
+            { id: 2, nombre: "Teclado", descripcion: "Teclado", categoria: "Categoría B", imagen: "/api/placeholder/50/50", precio: 20.50 },
+            { id: 3, nombre: "Pantalla", descripcion: "Pantalla", categoria: "Categoría A", imagen: "/api/placeholder/50/50", precio: 15.75 }
+        ];
+
+        function renderTable() {
+            const tbody = document.querySelector("#productTable tbody");
+            tbody.innerHTML = "";
+            products.forEach(product => {
+                const row = `
+                    <tr>
+                        <td>${product.id}</td>
+                        <td>${product.nombre}</td>
+                        <td>${product.descripcion}</td>
+                        <td>${product.categoria}</td>
+                        <td><img src="${product.imagen}" alt="${product.nombre}"></td>
+                        <td>$${product.precio.toFixed(2)}</td>
+                        <td class="action-buttons">
+                            <button onclick="deleteProduct(${product.id})">Eliminar</button>
+                            <button onclick="updateProduct(${product.id})">Actualizar</button>
+                            <button onclick="addToCart(${product.id})">Agregar al carrito</button>
+                        </td>
+                    </tr>
+                `;
+                tbody.innerHTML += row;
+            });
+        }
+
+        function deleteProduct(id) {
+            products = products.filter(product => product.id !== id);
+            renderTable();
+        }
+
+        function updateProduct(id) {
+            const product = products.find(p => p.id === id);
+            if (product) {
+        
+                product.precio += 1;
+                renderTable();
+            }
+        }
+
+        function addToCart(id) {
+            alert(`Producto ${id} agregado al carrito`);
+        }
+
+        function addProduct() {
+            const newId = Math.max(...products.map(p => p.id)) + 1;
+            const newProduct = {
+                id: newId,
+                nombre: `Nuevo Producto ${newId}`,
+                descripcion: "Nueva descripción",
+                categoria: "Nueva Categoría",
+                imagen: "/api/placeholder/50/50",
+                precio: 0.00
+            };
+            products.push(newProduct);
+            renderTable();
+        }
+
+        
+        renderTable();
+
+        
+    </script>
+</body>
+</html>
