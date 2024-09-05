@@ -1,0 +1,28 @@
+ <thead>
+      <tr>
+        <th>ID</th>
+        <th>Nombre</th>
+        <th>Descripción</th>
+        <th>Categoría</th>
+        <th>Imagen</th>
+        <th>Precio</th>
+        <th>Acciones</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let product of productTable.data">
+        <td>{{ product.id }}</td>
+        <td>{{ product.nombre }}</td>
+        <td>{{ product.descripcion }}</td>
+        <td>{{ product.categoria }}</td>
+        <td><img [src]="product.imagen" alt="{{ product.nombre }}" style="width: 50px; height: 50px;"></td>
+        <td>$ {{ product.precio.toFixed(2) }}</td>
+        <td>
+          <button nz-button (click)="deleteProduct(product.id)">Eliminar</button>
+          <button nz-button (click)="updateProduct(product.id)">Actualizar</button>
+          <button nz-button (click)="addToCart(product.id)">Agregar al carrito</button>
+        </td>
+      </tr>
+    </tbody>
+  
+  <button nz-button (click)="addProduct()">Agregar Producto</button>

@@ -11,6 +11,8 @@ import { UsersService } from './services/users/users.service';
 import { RegistersService } from './services/registers/registers.service';
 import { NzDropDownModule } from 'ng-zorro-antd/dropdown';
 import { NzToolTipModule } from 'ng-zorro-antd/tooltip';
+import { NzTableModule } from 'ng-zorro-antd/table';
+
 
 @Component({
   selector: 'app-root',
@@ -26,7 +28,8 @@ import { NzToolTipModule } from 'ng-zorro-antd/tooltip';
     NzFlexModule,
     NzMenuModule,
     NzDropDownModule,
-    NzToolTipModule
+    NzToolTipModule,
+    NzTableModule
   ],
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']

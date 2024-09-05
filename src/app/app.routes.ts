@@ -5,6 +5,7 @@ import { UsersComponent } from './pages/users/users.component';
 import { canActivate, redirectUnauthorizedTo } from '@angular/fire/auth-guard';
 import { CarritoComponent } from './pages/carrito/carrito.component';
 import { AgregarProductoComponent } from './pages/agregar-producto/agregar-producto.component';
+import { ProductosComponent } from './pages/productos/productos.component';
 
 export const routes: Routes = [
   { path: '', pathMatch: 'full', redirectTo: '/welcome' },
@@ -14,5 +15,6 @@ export const routes: Routes = [
   { path: 'register', component: RegisterComponent },
   { path: 'users', component: UsersComponent,  },
   { path: 'users', component: UsersComponent },
-  { path: 'carrito', component:CarritoComponent}
+  { path: 'carrito', component:CarritoComponent},
+  { path: 'productos', component:ProductosComponent}
 ];
