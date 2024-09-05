@@ -1,0 +1,22 @@
+[
+    {
+        "id": 1,
+        "name": "Envio",
+        "imagen": "imagenes/promociones/prom1.jpg"
+    },
+    {
+        "id": 2,
+        "name": "Mouse",
+        "imagen": "imagenes/promociones/prom2.jpg"
+    },
+    {
+        "id": 3,
+        "name": "Audifonos",
+        "imagen": "imagenes/promociones/prom3.jpg"
+    },
+    {
+        "id": 4,
+        "name": "Muse Pad",
+        "imagen": "imagenes/promociones/prom4.jpg"
+    }
+]

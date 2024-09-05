@@ -13,7 +13,9 @@ export const routes: Routes = [
   { path: 'agregar-producto', component: AgregarProductoComponent },
   { path: 'login', component: LoginComponent },
   { path: 'register', component: RegisterComponent },
-  { path: 'users', component: UsersComponent,  },
+  { path: 'users', component: UsersComponent, ...canActivate(() => redirectUnauthorizedTo(['/login'])) },
+  { path: 'carrito', component:CarritoComponent, ...canActivate(() => redirectUnauthorizedTo(['/login']))},
+  { path: 'products', component: ProductosComponent, ...canActivate(() => redirectUnauthorizedTo(['/login'])) },
   { path: 'users', component: UsersComponent },
   { path: 'carrito', component:CarritoComponent},
   { path: 'productos', component:ProductosComponent}
