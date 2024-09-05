@@ -4,10 +4,12 @@ import { RegisterComponent } from './pages/register/register.component';
 import { UsersComponent } from './pages/users/users.component';
 import { canActivate, redirectUnauthorizedTo } from '@angular/fire/auth-guard';
 import { CarritoComponent } from './pages/carrito/carrito.component';
+import { AgregarProductoComponent } from './pages/agregar-producto/agregar-producto.component';
 
 export const routes: Routes = [
   { path: '', pathMatch: 'full', redirectTo: '/welcome' },
   { path: 'welcome', loadChildren: () => import('./pages/welcome/welcome.routes').then(m => m.WELCOME_ROUTES) },
+  { path: 'agregar-producto', component: AgregarProductoComponent },
   { path: 'login', component: LoginComponent },
   { path: 'register', component: RegisterComponent },
   { path: 'users', component: UsersComponent,  },

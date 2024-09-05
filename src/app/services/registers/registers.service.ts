@@ -85,7 +85,7 @@ export class RegistersService {
         console.log(error);
         return error;
       });
-    const uid = userCredential.user.uid;
+      const uid = userCredential.user.uid;
     this.currentRegister = { email, uid, nickname, photoURL, phoneNumber, role };
     const registersRef = collection(this.firestore, 'registers');
     return addDoc(registersRef, { uid, email, nickname, photoURL, phoneNumber, role });
