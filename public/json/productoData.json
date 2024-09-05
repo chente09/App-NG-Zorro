@@ -1,0 +1,82 @@
+[
+    {
+        "id": 1,
+        "name": "Laptop",
+        "imagen": "imagenes/products/img1.jpg",
+        "precio": 1500,
+        "stock": 10,
+        "descripcion": "Laptop de alto rendimiento con procesador Intel i7, 16GB de RAM y 512GB SSD."
+    },
+    {
+        "id": 2,
+        "name": "Celular",
+        "imagen": "imagenes/products/img2.jpg",
+        "precio": 800,
+        "stock": 25,
+        "descripcion": "Celular con pantalla AMOLED de 6.5 pulgadas, 128GB de almacenamiento y cámara triple de 48MP."
+    },
+    {
+        "id": 3,
+        "name": "AirdPods",
+        "imagen": "imagenes/products/img3.jpg",
+        "precio": 120,
+        "stock": 20,
+        "descripcion": "Auriculares inalámbricos con cancelación activa de ruido y carga rápida."
+    },
+    {
+        "id": 4,
+        "name": "Pantalla",
+        "imagen": "imagenes/products/img4.jpg",
+        "precio": 800,
+        "stock": 10,
+        "descripcion": "Pantalla 4K UHD de 27 pulgadas con tecnología IPS y alta precisión en colores."
+    },
+    {
+        "id": 5,
+        "name": "Smartwatch",
+        "imagen": "imagenes/products/img5.jpg",
+        "precio": 250,
+        "stock": 15,
+        "descripcion": "Reloj inteligente con monitoreo de frecuencia cardíaca, GPS integrado y notificaciones de smartphone."
+    },
+    {
+        "id": 6,
+        "name": "Teclado Mecánico",
+        "imagen": "imagenes/products/img6.jpg",
+        "precio": 100,
+        "stock": 30,
+        "descripcion": "Teclado mecánico con retroiluminación RGB, switches de alta precisión y diseño ergonómico."
+    },
+    {
+        "id": 7,
+        "name": "Mouse Inalámbrico",
+        "imagen": "imagenes/products/img7.jpg",
+        "precio": 50,
+        "stock": 40,
+        "descripcion": "Mouse inalámbrico ergonómico con sensor óptico de 1600 DPI y batería de larga duración."
+    },
+    {
+        "id": 8,
+        "name": "Cámara Web HD",
+        "imagen": "imagenes/products/img8.jpg",
+        "precio": 70,
+        "stock": 18,
+        "descripcion": "Cámara web HD con micrófono integrado, ideal para videoconferencias y streaming."
+    },
+    {
+        "id": 9,
+        "name": "Tablet",
+        "imagen": "imagenes/products/img9.jpg",
+        "precio": 400,
+        "stock": 12,
+        "descripcion": "Tablet con pantalla de 10.1 pulgadas, procesador octa-core y 64GB de almacenamiento."
+    },
+    {
+        "id": 10,
+        "name": "Impresora",
+        "imagen": "imagenes/products/img10.jpg",
+        "precio": 150,
+        "stock": 0,
+        "descripcion": "Impresora multifuncional con capacidad de impresión, escaneo y copia, ideal para oficinas."
+    }
+]
