@@ -8,7 +8,8 @@
     <nz-form-item>
         <nz-form-label [nzSm]="6" [nzXs]="24" nzFor="password" nzRequired>Contraseña</nz-form-label>
         <nz-form-control [nzSm]="14" [nzXs]="24" nzErrorTip="Por favor ingrese su Contraseña!">
-            <input (ngModelChange)="updateConfirmValidator()" nz-input type="password" id="password" formControlName="password" />
+            <input (ngModelChange)="updateConfirmValidator()" nz-input type="password" id="password"
+                formControlName="password" />
         </nz-form-control>
     </nz-form-item>
     <nz-form-item>
@@ -36,14 +37,27 @@
     </nz-form-item>
     <nz-form-item>
         <nz-form-label [nzSm]="6" [nzXs]="24" nzFor="phoneNumber" nzRequired>Numero de Contacto</nz-form-label>
-        <nz-form-control [nzSm]="14" [nzXs]="24" 
-            nzErrorTip="Por favor ingrese su numero de contacto!">
+        <nz-form-control [nzSm]="14" [nzXs]="24" nzErrorTip="Por favor ingrese su numero de contacto!">
             <input formControlName="phoneNumber" id="phoneNumber" nz-input />
         </nz-form-control>
     </nz-form-item>
     <nz-form-item nz-row class="register-area">
         <nz-form-control [nzSpan]="14" [nzOffset]="6">
             <button nz-button nzType="primary" type="button" (click)="onClickRegister()">Registrarme</button>
+        </nz-form-control>
+    </nz-form-item>
+    <nz-form-item nz-row class="register-area">
+        <nz-form-control [nzSpan]="14" [nzOffset]="6">
+            <button 
+            nz-button 
+            class="login-form-button login-form-margin" 
+            type="button"
+            (click)="onClickRegisterWithGoogle()"
+            ><span 
+            nz-icon 
+            nzType="google"
+            nzTheme="outline"
+            ></span>Registrarme con Google</button>
         </nz-form-control>
     </nz-form-item>
 </form>

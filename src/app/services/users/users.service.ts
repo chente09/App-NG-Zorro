@@ -29,7 +29,7 @@ export class UsersService {
     return signInWithEmailAndPassword(this.auth, email, password);
   }
 
-  loginWhithGoogle(): Promise<any> {
+  loginWithGoogle(): Promise<any> {
     return signInWithPopup(this.auth, new GoogleAuthProvider());
   }    
 

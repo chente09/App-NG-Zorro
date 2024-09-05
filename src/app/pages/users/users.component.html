@@ -1,0 +1,25 @@
+<nz-table #editRowTable nzBordered [nzData]="registers" nzTableLayout="fixed">
+    <thead>
+        <tr>
+            <th >Nombre de Usuario</th>
+            <th >Correo</th>
+            <th >Celular</th>
+            <th >Imagen</th>
+            <th >Role</th>
+            <th>Action</th>
+        </tr>
+    </thead>
+    <tbody>
+        @for (data of editRowTable.data; track data) {
+        <tr>
+            
+            <td>{{ data.nickname }}</td>
+            <td>{{ data.email }}</td>
+            <td>{{ data.phoneNumber }}</td>
+            <td><img [src]="data.photoURL"  alt="photo"></td>
+            <td>{{ data.role }}</td>
+            <td><a>Edit</a></td>
+        </tr>
+        }
+    </tbody>
+</nz-table>
