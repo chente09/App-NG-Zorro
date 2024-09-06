@@ -1,5 +1,4 @@
 import { Component } from '@angular/core';
-import * as productoData from '../../../../public/json/productoData.json';
 import { CommonModule } from '@angular/common';
 import { RouterLink, RouterLinkActive } from '@angular/router';
 import { ProductService, Producto } from '../../services/productos/productos.service';

@@ -29,10 +29,6 @@ export class AdminProductsComponent {
     });
   }
 
- 
-
-
-
   addToCart(id: number): void {
     alert(`Producto ${id} agregado al carrito`);
   }
