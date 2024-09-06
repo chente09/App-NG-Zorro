@@ -54,6 +54,8 @@ export class AgregarProductoComponent {
       .catch(error => console.log(error));
   }
 
+  
+
   deleteProducto(producto: Producto): void {
     this.productService.deleteProducto(producto)
       .then(() => {
@@ -61,5 +63,7 @@ export class AgregarProductoComponent {
       })
       .catch(error => console.log(error));
   }
+
+  
 
 }
