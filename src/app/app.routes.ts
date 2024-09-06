@@ -7,7 +7,7 @@ import { CarritoComponent } from './pages/carrito/carrito.component';
 import { AgregarProductoComponent } from './pages/agregar-producto/agregar-producto.component';
 import { ProductosComponent } from './pages/productos/productos.component';
 import { AdminProductsComponent } from './pages/admin-products/admin-products.component';
-
+ 
 export const routes: Routes = [
   { path: '', pathMatch: 'full', redirectTo: '/welcome' },
   { path: 'welcome', loadChildren: () => import('./pages/welcome/welcome.routes').then(m => m.WELCOME_ROUTES) },
