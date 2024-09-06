@@ -6,6 +6,7 @@ import { canActivate, redirectUnauthorizedTo } from '@angular/fire/auth-guard';
 import { CarritoComponent } from './pages/carrito/carrito.component';
 import { AgregarProductoComponent } from './pages/agregar-producto/agregar-producto.component';
 import { ProductosComponent } from './pages/productos/productos.component';
+import { AdminProductsComponent } from './pages/admin-products/admin-products.component';
 
 export const routes: Routes = [
   { path: '', pathMatch: 'full', redirectTo: '/welcome' },
@@ -15,8 +16,6 @@ export const routes: Routes = [
   { path: 'register', component: RegisterComponent },
   { path: 'users', component: UsersComponent, ...canActivate(() => redirectUnauthorizedTo(['/login'])) },
   { path: 'carrito', component:CarritoComponent, ...canActivate(() => redirectUnauthorizedTo(['/login']))},
-  { path: 'products', component: ProductosComponent, ...canActivate(() => redirectUnauthorizedTo(['/login'])) },
-  { path: 'users', component: UsersComponent },
-  { path: 'carrito', component:CarritoComponent},
-  { path: 'productos', component:ProductosComponent}
+  { path: 'products', component: ProductosComponent, ...canActivate(() => redirectUnauthorizedTo(['/login']))},
+  { path: 'admin-products', component: AdminProductsComponent, ...canActivate(() => redirectUnauthorizedTo(['/login']))},
 ];

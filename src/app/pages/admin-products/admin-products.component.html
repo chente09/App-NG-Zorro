@@ -1,0 +1,24 @@
+<nz-table #editRowTable nzBordered [nzData]="productos" nzTableLayout="fixed">
+    <thead>
+        <tr>
+            <th >Producto</th>
+            <th >Marca</th>
+            <th >Precio</th>
+            <th>Imagen</th>
+            <th >Descripción</th>
+        </tr>
+    </thead>
+    <tbody>
+        @for (data of editRowTable.data; track data) {
+        <tr>
+            
+            <td>{{ data.nombre }}</td>
+            <td>{{ data.marca }}</td>
+            <td>{{ data.precio }}</td>
+            <td><img [src]="data.photoURL"  alt="photo"></td>
+            <td>{{ data.descripcion }}</td>
+            <td><a>Edit</a></td>
+        </tr>
+        }
+    </tbody>
+</nz-table>
