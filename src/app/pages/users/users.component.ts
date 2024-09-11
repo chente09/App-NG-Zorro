@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { NzTableModule } from 'ng-zorro-antd/table';
 import { RegistersService, Register } from '../../services/registers/registers.service';
+import { EmailService } from '../../services/email/email.service';
 
 @Component({
   selector: 'app-users',
@@ -11,7 +12,7 @@ import { RegistersService, Register } from '../../services/registers/registers.s
 })
 export class UsersComponent {
   registers: Register[] = [];
-  constructor(private registersService: RegistersService) {}
+  constructor(private registersService: RegistersService, private emailService: EmailService) {}
 
   ngOnInit(): void {  
     this.getRegisters();
@@ -19,5 +20,14 @@ export class UsersComponent {
 
   getRegisters(): void{
     this.registersService.getRegisters().subscribe(rs=>this.registers=rs);
+  }
+
+  sendEmail(register: Register): void {
+    this.emailService.sendEmail(
+      register.email,
+      register.nickname,
+      `<h1>Hola ${register.nickname} Gracias por registrarte en nuestra tienda</h1>`,
+      'Gracias por registrarte en nuestra tienda'
+    ).subscribe(response => console.log(response));
   }
 }

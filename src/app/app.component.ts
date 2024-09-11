@@ -45,6 +45,7 @@ export class AppComponent {
   }
 
   logout(): void {
+    this.registersService.currentRegister = undefined;
     this.usersService.logout();
   }
 }

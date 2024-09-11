@@ -54,4 +54,9 @@
         <nz-step nzTitle="Done" nzStatus="wait" nzIcon="smile"></nz-step>
         <!-- <ng-template #iconTemplate><span nz-icon nzType="smile"></span></ng-template> -->
     </nz-steps>
+    <div class="flex-item">
+        <div class="btn-wrapper" nz-flex [nzGap]="'middle'" nzWrap="wrap" nzAlign="center">
+            <button  style="width: 100px" nz-button nzType="primary" (click)="pay()">Button</button>
+        </div>
+    </div>
 </div>
