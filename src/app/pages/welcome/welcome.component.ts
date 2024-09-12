@@ -22,7 +22,6 @@ export class WelcomeComponent implements OnInit {
     this.route.queryParams
     .subscribe(params => {
       console.log(params['paymentId']);
-
     });
   }
 

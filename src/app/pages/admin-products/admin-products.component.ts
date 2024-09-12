@@ -61,29 +61,22 @@ export class AdminProductsComponent {
         this.producto = this.producto.filter(p => p.id !== producto.id);
       })
       .catch(error => console.log(error));
+      this.form.reset();
   }
 
  
   editProducto(producto: Producto): void {
-
-    
-
     this.form.patchValue({
       nombre: producto.nombre,
       marca: producto.marca,
-      url: producto.photoURL,
+      url: producto.imagen,
       precio: producto.precio,
       descripcion: producto.descripcion,
     });
-
-
-    
   
   }
 
   updateProducto(producto: Producto): void {
-    
-
     if (!this.form.valid) return;
     const newProducto = { ...producto, ...this.form.value };
     this.productService.updateProducto(newProducto)
@@ -92,5 +85,6 @@ export class AdminProductsComponent {
         this.producto[index] = newProducto;
       })
       .catch(error => console.log(error));
+    this.form.reset();
   }
 }

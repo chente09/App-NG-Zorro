@@ -14,8 +14,8 @@ export interface Producto {
   id: string;
   nombre: string;
   marca: string;
-  photoURL: string;
-  precio: string;
+  imagen: string;
+  precio: number;
   descripcion: string;
 }
 

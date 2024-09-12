@@ -18,7 +18,7 @@
             <td>{{ data.phoneNumber }}</td>
             <td><img [src]="data.photoURL"  alt="photo"></td>
             <td>{{ data.role }}</td>
-            <td><a  style="cursor: pointer;" (click)="sendEmail(data)">Enviar Correo</a></td>
+            <td><button  style="cursor: pointer;" (click)="sendEmail(data)">Enviar Correo</button></td>
         </tr>
         }
     </tbody>

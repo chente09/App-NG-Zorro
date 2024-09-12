@@ -3,7 +3,6 @@ import { LoginComponent } from './pages/login/login.component';
 import { RegisterComponent } from './pages/register/register.component';
 import { UsersComponent } from './pages/users/users.component';
 import { canActivate, redirectUnauthorizedTo } from '@angular/fire/auth-guard';
-import { CarritoComponent } from './pages/carrito/carrito.component';
 import { AgregarProductoComponent } from './pages/agregar-producto/agregar-producto.component';
 import { AdminProductsComponent } from './pages/admin-products/admin-products.component';
 import { ProductsComponent } from './pages/products/products.component';
@@ -24,7 +23,6 @@ export const routes: Routes = [
   { path: 'login', component: LoginComponent },
   { path: 'register', component: RegisterComponent },
   { path: 'users', component: UsersComponent, ...canActivate(() => redirectUnauthorizedTo(['/login'])) },
-  { path: 'carrito', component:CarritoComponent, ...canActivate(() => redirectUnauthorizedTo(['/login']))},
   { path: 'products', 
     component: ProductsComponent, 
     // canMatch: [rolesGuard]
