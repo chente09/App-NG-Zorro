@@ -1,81 +1,83 @@
-
 <div class="container-fluid text-center mb-5">
- 
-    <h1>Formulario</h1>
- 
-    <form [formGroup]="form" (ngSubmit)="addProducto()"  id="form-1" >
-        <div class="mb-3">
-            <label for="nombre" class="form-label">Nombre</label>
-            <input type="text" class="form-control" id="nombre" formControlName="nombre">
-            <div *ngIf="form.get('nombre')?.invalid && form.get('nombre')?.touched">
-                <small>El nombre es requerido</small>
+    <!-- Título con botón para agregar nuevo producto -->
+    <div class="d-flex justify-content-between align-items-center mb-3">
+        <h1>Lista de Productos</h1>
+        <button class="btn btn-success" (click)="showAddForm()">Nuevo Producto</button>
+    </div>
+
+    <!-- Formulario de producto, visible solo si showForm es true -->
+    <div *ngIf="showForm">
+        <h2>{{ isEditing ? 'Editar Producto' : 'Agregar Producto' }}</h2>
+
+        <form [formGroup]="form" (ngSubmit)="isEditing ? updateProducto() : addProducto()">
+            <div class="mb-3">
+                <label for="nombre" class="form-label">Nombre</label>
+                <input type="text" class="form-control" id="nombre" formControlName="nombre">
+                <div *ngIf="form.get('nombre')?.invalid && form.get('nombre')?.touched">
+                    <small>El nombre es requerido</small>
+                </div>
             </div>
-        </div>
-        <div class="mb-3">
-            <label for="marca" class="form-label">Marca</label>
-            <input type="text" class="form-control" id="marca" formControlName="marca">
-            <div *ngIf="form.get('marca')?.invalid && form.get('marca')?.touched">
-                <small>La Marca es requerido</small>
+            <div class="mb-3">
+                <label for="marca" class="form-label">Marca</label>
+                <input type="text" class="form-control" id="marca" formControlName="marca">
+                <div *ngIf="form.get('marca')?.invalid && form.get('marca')?.touched">
+                    <small>La marca es requerida</small>
+                </div>
             </div>
-        </div>
-        <div class="mb-3">
-            <label for="imagen" class="form-label">Imagen Url</label>
-            <input type="text" class="form-control" id="imagen" formControlName="imagen">
-            <div *ngIf="form.get('imagen')?.invalid && form.get('imagen')?.touched">
-                <small>La imagen es requerido</small>
+            <div class="mb-3">
+                <label for="imagen" class="form-label">Imagen URL</label>
+                <input type="text" class="form-control" id="imagen" formControlName="imagen">
+                <div *ngIf="form.get('imagen')?.invalid && form.get('imagen')?.touched">
+                    <small>La imagen es requerida</small>
+                </div>
             </div>
-            
-        </div>
-        <div class="mb-3">
-            <label for="precio" class="form-label">Precio</label>
-            <input type="text" class="form-control" id="precio" formControlName="precio">
-            <div *ngIf="form.get('precio')?.invalid && form.get('precio')?.touched">
-                <small>El precio es requerido</small>
+            <div class="mb-3">
+                <label for="precio" class="form-label">Precio</label>
+                <input type="text" class="form-control" id="precio" formControlName="precio">
+                <div *ngIf="form.get('precio')?.invalid && form.get('precio')?.touched">
+                    <small>El precio es requerido</small>
+                </div>
             </div>
-        </div>
-        <div class="mb-3">
-            <label for="descripcion" class="form-label">Descripción</label>
-            <input type="text" class="form-control" id="descripcion" formControlName="descripcion">
-            <div *ngIf="form.get('descripcion')?.invalid && form.get('descripcion')?.touched">
-                <small>La Descripción es requerido</small>
+            <div class="mb-3">
+                <label for="descripcion" class="form-label">Descripción</label>
+                <input type="text" class="form-control" id="descripcion" formControlName="descripcion">
+                <div *ngIf="form.get('descripcion')?.invalid && form.get('descripcion')?.touched">
+                    <small>La descripción es requerida</small>
+                </div>
             </div>
-        </div>
-        <button type="submit" class="btn btn-primary">Crear</button>
-        
-    </form>
+
+            <!-- Botones de acción -->
+            <button type="submit" class="btn btn-primary">{{ isEditing ? 'Actualizar' : 'Crear' }}</button>
+            <button type="button" class="btn btn-secondary" (click)="cancelEdit()">Cancelar</button>
+        </form>
+    </div>
 </div>
+
 <hr>
 
-  
-
-<h1>Productos</h1>
-
+<!-- Lista de productos -->
 <nz-table #editRowTable nzBordered [nzData]="producto" nzTableLayout="fixed">
     <thead>
         <tr>
-            <th >Producto</th>
-            <th >Marca</th>
-            <th >Precio</th>
+            <th>Producto</th>
+            <th>Marca</th>
+            <th>Precio</th>
             <th>Imagen</th>
-            <th >Descripción</th>
-            <th >Opciones</th>
+            <th>Descripción</th>
+            <th>Opciones</th>
         </tr>
     </thead>
     <tbody>
-        @for (data of editRowTable.data; track data) {
-        <tr>
-            
+        <tr *ngFor="let data of editRowTable.data">
             <td>{{ data.nombre }}</td>
-            <td>{{ data.marca }}</td>   
+            <td>{{ data.marca }}</td>
             <td>${{ data.precio }}</td>
-            <td><img [src]="data.imagen" style="width: 80px; height: 80px;"  alt="photo"></td>
+            <td><img [src]="data.imagen" style="width: 80px; height: 80px;" alt="photo"></td>
             <td>{{ data.descripcion }}</td>
             <td>
                 <a class="btn btn-outline-danger" (click)="deleteProducto(data)">Eliminar</a>
                 <a class="btn btn-outline-warning" (click)="editProducto(data)">Editar</a>
-                <a class="btn btn-outline-success" (click)="updateProducto(data)">Actualizar</a>
             </td>
         </tr>
-        }
     </tbody>
 </nz-table>

@@ -1,0 +1,35 @@
+.welcome-container {
+    background-image: url('https://i.ytimg.com/vi/n2KH2GH7xt0/maxresdefault.jpg');
+    background-size: cover;
+    background-position: center;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+  }
+  
+  .welcome-title {
+    font-size: 100px;
+    color: white;
+    text-align: center;
+  }
+  
+  .icon-wrapper {
+    gap: 40px;
+    margin-top: 30px;
+  }
+  
+  .icon-label {
+    color: white;
+    font-size: 18px;
+  }
+  
+  a {
+    text-decoration: none;
+  }
+  
+  a:hover .icon-label {
+    color: #1890ff;
+  }
+  

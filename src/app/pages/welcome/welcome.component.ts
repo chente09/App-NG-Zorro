@@ -5,7 +5,7 @@ import { NzDividerModule } from 'ng-zorro-antd/divider';
 import { NzMenuModule } from 'ng-zorro-antd/menu';
 import { NzStepsModule } from 'ng-zorro-antd/steps';
 import { PaypalService } from '../../services/paypal/paypal.service';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-welcome',
@@ -16,7 +16,7 @@ import { ActivatedRoute } from '@angular/router';
 })
 export class WelcomeComponent implements OnInit {
 
-  constructor(private paypalService: PaypalService, private route: ActivatedRoute) { }
+  constructor(private paypalService: PaypalService, private route: ActivatedRoute, private router: Router) { }
 
   ngOnInit() {
     this.route.queryParams
@@ -27,7 +27,7 @@ export class WelcomeComponent implements OnInit {
 
   pay(): void {
     this.paypalService.getAccessToken()
-    .subscribe(accessToken =>{
+    .subscribe(accessToken => {
       this.paypalService.createWebProfile(accessToken.access_token, `Pago-${Math.random()}`)
       .subscribe(webProfile => {
         this.paypalService.createPayment(
@@ -43,4 +43,12 @@ export class WelcomeComponent implements OnInit {
     })
   }
 
+  // Métodos para navegar a Usuarios y Productos
+  goToUsers(): void {
+    this.router.navigate(['/users']); // Ruta que debe estar definida en tu módulo de rutas
+  }
+
+  goToProducts(): void {
+    this.router.navigate(['/admin-products']); // Ruta que debe estar definida en tu módulo de rutas
+  }
 }
